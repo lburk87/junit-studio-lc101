@@ -31,7 +31,7 @@ public class BalancedBracketsTest {
 
     @Test
     public void bracketsArePairedCorrectly() {
-        assertFalse(BalancedBrackets.hasBalancedBrackets("][[["));
+        assertFalse(BalancedBrackets.hasBalancedBrackets("[][["));
     }
 
     @Test
@@ -39,5 +39,38 @@ public class BalancedBracketsTest {
         assertFalse(BalancedBrackets.hasBalancedBrackets("]["));
     }
 
+    @Test
+    public void bracketsInOrder2() {
+        assertFalse(BalancedBrackets.hasBalancedBrackets("][[]]]]]]]]"));
+    }
 
+    @Test
+    public void curlyBracketsDoNotCount() {
+        assertFalse(BalancedBrackets.hasBalancedBrackets("{}"));
+    }
+
+    @Test
+    public void comparisonsDoNotCount() {
+        assertFalse(BalancedBrackets.hasBalancedBrackets("<<>>"));
+    }
+
+    @Test
+    public void countBalancedBracketsCountsCorrectly() {
+        assertEquals(BalancedBrackets.countBalancedBrackets("[[[]]]"), "3 brackets detected.");
+    }
+
+    @Test
+    public void countBalancedBracketsIfNoBalancedBrackets() {
+        assertEquals(BalancedBrackets.countBalancedBrackets(""), "0 brackets detected.");
+    }
+
+    @Test
+    public void tbd() {
+
+    }
 }
+
+
+
+
+
