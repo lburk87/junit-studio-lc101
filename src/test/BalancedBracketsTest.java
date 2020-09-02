@@ -15,23 +15,28 @@ public class BalancedBracketsTest {
     }
 
     @Test
-    public void noBracketsReturnsTrue() {
-        assertTrue(BalancedBrackets.hasBalancedBrackets("words"));
+    public void noBracketsReturnsFalse() {
+        assertFalse(BalancedBrackets.hasBalancedBrackets("no brackets"));
     }
 
     @Test
     public void balancedBracketsAndWordsReturnsTrue() {
-        assertTrue(BalancedBrackets.hasBalancedBrackets("[words]and bracket[ and bracket ]"));
+        assertTrue(BalancedBrackets.hasBalancedBrackets("[non-bracket characters]okay with[brackets]"));
     }
 
     @Test
     public void notBalancedBracketsAndWordsReturnsFalse() {
-        assertFalse(BalancedBrackets.hasBalancedBrackets("[words[ whoa [ gotta close these brackets]] whoops"));
+        assertFalse(BalancedBrackets.hasBalancedBrackets("[[[three opening brackets]] only 2 closing brackets"));
     }
 
     @Test
     public void bracketsArePairedCorrectly() {
         assertFalse(BalancedBrackets.hasBalancedBrackets("][[["));
+    }
+
+    @Test
+    public void bracketsInOrder() {
+        assertFalse(BalancedBrackets.hasBalancedBrackets("]["));
     }
 
 
